@@ -6,6 +6,19 @@
   <title>Maine Plumber Near Me | Local Maine-Owned. Not a Corporation.</title>
   <meta name="description" content="Maine-owned and operated plumber matching service. We're your neighbors — not a call center in Texas. One plumber. One call. Serving York County and Southern Maine with upfront pricing and same-day availability.">
   <meta name="keywords" content="plumber near me maine, maine plumber, york county plumber, sanford plumber, biddeford plumber, kennebunk plumber, emergency plumber maine, local plumber maine">
+
+  <!-- ============================================
+       CONFIGURATION — EDIT THESE TWO LINES ONLY
+       ============================================ -->
+  <script>
+    const CONFIG = {
+      phone: "PHONE_NUMBER",        // Your Google Voice number e.g. 2075550100
+      email: "YOUR_EMAIL",          // Your email for lead notifications
+      cashDiscount: "10-15",        // Cash discount percentage
+      responseTime: "minutes",      // How fast you call back
+    };
+  </script>
+  <!-- ============================================ -->
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a2e; }
@@ -89,7 +102,7 @@
     <h1>A <span>Real Maine Plumber.</span><br>Not a 1-800 Call Center.</h1>
     <p>We're your neighbors — not HomeAdvisor, not Angi, not some out-of-state company selling your info to strangers. One local plumber. Upfront pricing. Same-day available.</p>
     <div class="hero-buttons">
-      <a href="tel:GOOGLE_VOICE_NUMBER" class="btn-call">📞 Call Now — Free</a>
+      <a id="callBtn" href="#" class="btn-call">📞 Call Now — Free</a>
       <a href="#get-quote" class="btn-form">Get a Free Quote →</a>
     </div>
   </section>
@@ -226,7 +239,7 @@
   <div class="cta-bottom">
     <h2>Need a Plumber Today?</h2>
     <p>Call a real Maine plumber — not a call center, not a robot. We pick up.</p>
-    <a href="tel:GOOGLE_VOICE_NUMBER" class="btn-white">📞 Call Now — Talk to a Real Person</a>
+    <a id="callBtn2" href="#" class="btn-white">📞 Call Now — Talk to a Real Person</a>
   </div>
 
   <footer>
@@ -234,26 +247,54 @@
   </footer>
 
   <script>
+    // Apply config dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set phone links
+      const phone = CONFIG.phone.replace(/\D/g,'');
+      document.querySelectorAll('#callBtn, #callBtn2').forEach(btn => {
+        btn.href = phone !== 'PHONE_NUMBER' ? 'tel:+1' + phone : '#get-quote';
+      });
+
+      // Warn if not configured
+      if (CONFIG.phone === 'PHONE_NUMBER' || CONFIG.email === 'YOUR_EMAIL') {
+        const banner = document.createElement('div');
+        banner.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#ff9800;color:#000;text-align:center;padding:10px;font-weight:700;z-index:9999;font-size:14px;';
+        banner.innerHTML = '⚠️ Setup needed — <a href="/setup.html" style="color:#000;text-decoration:underline;">click here to configure your phone & email</a>';
+        document.body.prepend(banner);
+      }
+    });
+
+    // Form submission via Formsubmit.co — zero account needed
+    // First submission will send you an activation email
     document.getElementById('leadForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const data = new FormData(this);
-      const payload = {};
-      data.forEach((v,k) => payload[k] = v);
 
-      // POST to Tally form — replace TALLY_ID with your form ID
-      fetch('https://api.tally.so/r/TALLY_ID', {
+      const formData = new FormData(this);
+      formData.append('_subject', '🔧 New Plumbing Lead — Maine Plumber Near Me');
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+      formData.append('_next', window.location.href + '?submitted=1');
+
+      const email = CONFIG.email !== 'YOUR_EMAIL' ? CONFIG.email : null;
+      if (!email) {
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+        return;
+      }
+
+      fetch('https://formsubmit.co/ajax/' + email, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: formData
       }).catch(() => {});
 
       this.style.display = 'none';
       document.getElementById('successMsg').style.display = 'block';
 
       // Auto-dial on mobile after 2 sec
+      const phone = CONFIG.phone.replace(/\D/g,'');
       setTimeout(() => {
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-          window.location.href = 'tel:GOOGLE_VOICE_NUMBER';
+        if (/Mobi|Android/i.test(navigator.userAgent) && phone !== 'PHONE_NUMBER') {
+          window.location.href = 'tel:+1' + phone;
         }
       }, 2000);
     });

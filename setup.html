@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maine Plumber Near Me — Setup</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:#f5f5f5; color:#1a1a2e; }
+    .header { background: linear-gradient(135deg, #1a1a2e, #0f3460); color:white; padding:32px 20px; text-align:center; }
+    .header h1 { font-size:28px; font-weight:800; margin-bottom:8px; }
+    .header p { opacity:0.8; }
+    .container { max-width:700px; margin:40px auto; padding:0 20px; }
+    .card { background:white; border-radius:16px; padding:32px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
+    .card h2 { font-size:20px; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:10px; }
+    .card p { color:#666; font-size:15px; margin-bottom:20px; line-height:1.6; }
+    label { display:block; font-weight:600; font-size:14px; margin-bottom:6px; color:#333; }
+    input { width:100%; padding:12px 16px; border:2px solid #e9ecef; border-radius:8px; font-size:16px; margin-bottom:16px; }
+    input:focus { outline:none; border-color:#e94560; }
+    .btn { background:#e94560; color:white; border:none; padding:14px 28px; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; width:100%; }
+    .btn:hover { background:#c73652; }
+    .btn-secondary { background:#1a1a2e; color:white; border:none; padding:12px 24px; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; display:inline-block; margin-top:8px; }
+    .status { padding:12px 16px; border-radius:8px; font-weight:600; margin-bottom:16px; font-size:14px; }
+    .status.ok { background:#d4edda; color:#155724; }
+    .status.warn { background:#fff3cd; color:#856404; }
+    .step-num { background:#e94560; color:white; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; flex-shrink:0; }
+    .checklist { list-style:none; }
+    .checklist li { padding:12px 0; border-bottom:1px solid #f0f0f0; display:flex; align-items:flex-start; gap:12px; }
+    .checklist li:last-child { border-bottom:none; }
+    .check-icon { font-size:20px; flex-shrink:0; }
+    .check-text strong { display:block; font-size:15px; margin-bottom:2px; }
+    .check-text span { font-size:13px; color:#666; }
+    .check-text a { color:#e94560; }
+    code { background:#f0f0f0; padding:2px 8px; border-radius:4px; font-size:13px; font-family:monospace; }
+    .preview-link { display:inline-block; margin-top:12px; color:#e94560; font-weight:600; text-decoration:none; font-size:15px; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔧 Maine Plumber Near Me — Setup</h1>
+  <p>Fill in your details below. Takes 2 minutes. Everything else is already done.</p>
+</div>
+
+<div class="container">
+
+  <!-- STEP 1: Quick Config -->
+  <div class="card">
+    <h2><div class="step-num">1</div> Enter Your Details</h2>
+    <p>These two fields wire up your phone number and lead notifications. No accounts needed.</p>
+
+    <label>Your Phone Number (Google Voice recommended)</label>
+    <input type="tel" id="phoneInput" placeholder="e.g. 207-555-0100" />
+
+    <label>Your Email (leads get emailed here instantly)</label>
+    <input type="email" id="emailInput" placeholder="e.g. yourname@gmail.com" />
+
+    <button class="btn" onclick="saveConfig()">💾 Save & Update Site</button>
+    <div id="saveStatus" style="margin-top:12px;"></div>
+  </div>
+
+  <!-- STEP 2: Remaining checklist -->
+  <div class="card">
+    <h2><div class="step-num">2</div> Quick Setup Checklist</h2>
+    <p>Everything below is free. Check them off as you go:</p>
+    <ul class="checklist">
+      <li>
+        <div class="check-icon">📞</div>
+        <div class="check-text">
+          <strong>Get a free Google Voice number</strong>
+          <span>Go to <a href="https://voice.google.com" target="_blank">voice.google.com</a> → Choose a Maine area code (207) number → Enter it above. Calls forward to your cell, they never see your real number.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">📧</div>
+        <div class="check-text">
+          <strong>Activate your lead email</strong>
+          <span>After you save your email above and someone submits the form, Formsubmit.co will send you a one-time activation email. Click confirm. After that, every lead emails you automatically — free forever.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">🌐</div>
+        <div class="check-text">
+          <strong>Buy maineplumbernearme.com domain</strong>
+          <span>Go to <a href="https://porkbun.com" target="_blank">porkbun.com</a> → Search maineplumbernearme.com → Buy (~$10/yr) → Point DNS to GitHub Pages. I'll handle the technical part once you buy it.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">📘</div>
+        <div class="check-text">
+          <strong>Create Facebook Business Page</strong>
+          <span>Go to <a href="https://facebook.com/pages/create" target="_blank">facebook.com/pages/create</a> → Category: Local Business → Plumber → Name: Maine Plumber Near Me → Use your Google Voice number. All posts pre-written below.</span>
+        </div>
+      </li>
+      <li>
+        <div class="check-icon">📍</div>
+        <div class="check-text">
+          <strong>Claim Google Business Profile</strong>
+          <span>Go to <a href="https://business.google.com" target="_blank">business.google.com</a> → Add your business → Category: Plumber → Service area: York County, ME → Use Google Voice number. They'll mail a postcard to verify (1-2 weeks).</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STEP 3: Facebook Posts -->
+  <div class="card">
+    <h2><div class="step-num">3</div> Ready-to-Post Facebook Content</h2>
+    <p>Copy and paste these into York County Facebook groups. Post one per day starting today.</p>
+
+    <div style="background:#f8f9fa; border-radius:8px; padding:20px; margin-bottom:16px; border-left:4px solid #e94560;">
+      <strong style="display:block; margin-bottom:8px; font-size:13px; color:#e94560; text-transform:uppercase;">Post 1 — Introduction</strong>
+      <p style="font-size:15px; line-height:1.7; white-space:pre-wrap;">🔧 Hey neighbors — tired of calling 1-800 numbers and reaching someone in Texas who's never been to Maine?
+
+We're a local Maine plumbing service based right here in York County. We match you with one local licensed plumber — not 6 contractors who'll all call you at once.
+
+✅ Same-day available this week
+✅ Upfront pricing — no surprises
+✅ Cash discounts available
+🚫 We never sell your info
+
+Serving Sanford, Biddeford, Kennebunk, Wells, Berwick, Saco and surrounding towns within 20 miles.
+
+Free quote → maineplumbernearme.com</p>
+      <button onclick="copyText(this)" style="margin-top:12px; background:#1a1a2e; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px;">📋 Copy Post</button>
+    </div>
+
+    <div style="background:#f8f9fa; border-radius:8px; padding:20px; margin-bottom:16px; border-left:4px solid #e94560;">
+      <strong style="display:block; margin-bottom:8px; font-size:13px; color:#e94560; text-transform:uppercase;">Post 2 — Anti-HomeAdvisor</strong>
+      <p style="font-size:15px; line-height:1.7; white-space:pre-wrap;">😤 HomeAdvisor and Angi are NOT your friends.
+
+Here's what they actually do:
+❌ Sell your contact info to 5+ contractors
+❌ Those contractors call you nonstop
+❌ Most aren't even local to Maine
+❌ They take a huge cut from every job
+
+We're different. Maine-owned. One plumber. Your info stays private.
+
+Got a leaky faucet, running toilet, water heater issue, or drain clog? We'll get you a real local plumber — fast.
+
+Free quote: maineplumbernearme.com
+Or call/text: YOUR_GOOGLE_VOICE_NUMBER</p>
+      <button onclick="copyText(this)" style="margin-top:12px; background:#1a1a2e; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px;">📋 Copy Post</button>
+    </div>
+
+    <div style="background:#f8f9fa; border-radius:8px; padding:20px; margin-bottom:16px; border-left:4px solid #e94560;">
+      <strong style="display:block; margin-bottom:8px; font-size:13px; color:#e94560; text-transform:uppercase;">Post 3 — Urgency / This Week Only</strong>
+      <p style="font-size:15px; line-height:1.7; white-space:pre-wrap;">🚨 Local plumber has openings THIS WEEK in York County.
+
+If you've been putting off that plumbing job — now's the time.
+
+🔧 Leaky pipes & faucets
+🚽 Running or broken toilets  
+🌡️ Water heater installs & repairs
+🪠 Stubborn drain clogs
+🚨 Emergency calls welcome
+
+Upfront flat-rate pricing. Cash discounts available. No trip charge for jobs booked this week.
+
+Maine-owned. Not a corporation. Not a call center.
+
+Book a free 5-min phone call: maineplumbernearme.com</p>
+      <button onclick="copyText(this)" style="margin-top:12px; background:#1a1a2e; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px;">📋 Copy Post</button>
+    </div>
+
+    <div style="background:#f8f9fa; border-radius:8px; padding:20px; border-left:4px solid #e94560;">
+      <strong style="display:block; margin-bottom:8px; font-size:13px; color:#e94560; text-transform:uppercase;">Post 4 — Nextdoor (more personal tone)</strong>
+      <p style="font-size:15px; line-height:1.7; white-space:pre-wrap;">Hey neighbors — I run a local plumber matching service right here in the Sanford area. 
+
+If you need a plumber and don't want to deal with big out-of-state websites, I can help. We keep it simple — you describe the job, a local plumber calls you back with a straight price. No runaround.
+
+Cash discounts always available.
+
+maineplumbernearme.com</p>
+      <button onclick="copyText(this)" style="margin-top:12px; background:#1a1a2e; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-size:13px;">📋 Copy Post</button>
+    </div>
+  </div>
+
+  <!-- Facebook Groups to post in -->
+  <div class="card">
+    <h2><div class="step-num">4</div> Facebook Groups to Post In</h2>
+    <p>Search these in Facebook and post in each one. One post per group per week max.</p>
+    <ul class="checklist">
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Sanford Maine Buy Sell Trade</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Springvale/Sanford Community Group</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Biddeford Saco Maine Community</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Kennebunk Kennebunkport Community</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>York County Maine Classifieds</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Wells Maine Community</strong><span>Search Facebook</span></div></li>
+      <li><div class="check-icon">👥</div><div class="check-text"><strong>Berwick South Berwick North Berwick Maine</strong><span>Search Facebook</span></div></li>
+    </ul>
+  </div>
+
+  <div style="text-align:center; padding:20px 0 40px;">
+    <a href="/" class="btn-secondary">← View Live Site</a>
+  </div>
+
+</div>
+
+<script>
+  function saveConfig() {
+    const phone = document.getElementById('phoneInput').value.trim();
+    const email = document.getElementById('emailInput').value.trim();
+    const status = document.getElementById('saveStatus');
+
+    if (!phone || !email) {
+      status.className = 'status warn';
+      status.textContent = '⚠️ Please enter both your phone number and email.';
+      return;
+    }
+
+    // Store in localStorage for reference
+    localStorage.setItem('mpnm_phone', phone);
+    localStorage.setItem('mpnm_email', email);
+
+    // Show instructions to update index.html config
+    status.className = 'status ok';
+    status.innerHTML = `✅ Got it! Now update these two lines in index.html:<br><br>
+      <code>phone: "${phone.replace(/\D/g,'')}"</code><br>
+      <code>email: "${email}"</code><br><br>
+      Or tell Clawrence your Google Voice number and email and it'll be done in 60 seconds.`;
+  }
+
+  function copyText(btn) {
+    const text = btn.previousElementSibling.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => btn.textContent = '📋 Copy Post', 2000);
+    });
+  }
+
+  // Pre-fill if saved
+  const savedPhone = localStorage.getItem('mpnm_phone');
+  const savedEmail = localStorage.getItem('mpnm_email');
+  if (savedPhone) document.getElementById('phoneInput').value = savedPhone;
+  if (savedEmail) document.getElementById('emailInput').value = savedEmail;
+</script>
+
+</body>
+</html>
