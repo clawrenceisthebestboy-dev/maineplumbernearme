@@ -1,0 +1,42 @@
+redirectsOrigin = "config"
+plugins = []
+headers = []
+
+[forms]
+
+[forms.plumbing-leads]
+name = "plumbing-leads"
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "/Users/jutes/.openclaw/workspace/maineplumbernearme"
+publishOrigin = "config"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[[redirects]]
+from = "/thank-you"
+to = "/thank-you.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]
