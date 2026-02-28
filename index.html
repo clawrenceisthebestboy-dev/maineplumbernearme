@@ -159,9 +159,11 @@
       <h2>Get Your Free Quote</h2>
       <p>A real Maine plumber — not a call center — will contact you within minutes. Your info stays private.</p>
       <div class="lead-form">
-        <form id="leadForm">
+        <form id="leadForm" name="plumbing-leads" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
           <div class="form-row">
-            <div class="form-group"><label>Your Name *</label><input type="text" name="name" required placeholder="John Smith"></div>
+            <input type="hidden" name="form-name" value="plumbing-leads">
+          <p style="display:none"><input name="bot-field"></p>
+          <div class="form-group"><label>Your Name *</label><input type="text" name="name" required placeholder="John Smith"></div>
             <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="(207) 555-0100"></div>
           </div>
           <div class="form-row">
@@ -264,39 +266,31 @@
       }
     });
 
-    // Form submission via Formsubmit.co — zero account needed
-    // First submission will send you an activation email
+    // Netlify Forms handles submission natively
+    // On success Netlify redirects to /thank-you.html
     document.getElementById('leadForm').addEventListener('submit', function(e) {
       e.preventDefault();
-
       const formData = new FormData(this);
-      formData.append('_subject', '🔧 New Plumbing Lead — Maine Plumber Near Me');
-      formData.append('_captcha', 'false');
-      formData.append('_template', 'table');
-      formData.append('_next', window.location.href + '?submitted=1');
 
-      const email = CONFIG.email !== 'YOUR_EMAIL' ? CONFIG.email : null;
-      if (!email) {
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
         this.style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';
-        return;
-      }
 
-      fetch('https://formsubmit.co/ajax/' + email, {
-        method: 'POST',
-        body: formData
-      }).catch(() => {});
-
-      this.style.display = 'none';
-      document.getElementById('successMsg').style.display = 'block';
-
-      // Auto-dial on mobile after 2 sec
-      const phone = CONFIG.phone.replace(/\D/g,'');
-      setTimeout(() => {
-        if (/Mobi|Android/i.test(navigator.userAgent) && phone !== 'PHONE_NUMBER') {
-          window.location.href = 'tel:+1' + phone;
-        }
-      }, 2000);
+        // Auto-dial on mobile after 2 sec
+        const phone = CONFIG.phone.replace(/\D/g,'');
+        setTimeout(() => {
+          if (/Mobi|Android/i.test(navigator.userAgent) && phone !== 'PHONE_NUMBER') {
+            window.location.href = 'tel:+1' + phone;
+          }
+        }, 2000);
+      }).catch(() => {
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      });
     });
   </script>
 
